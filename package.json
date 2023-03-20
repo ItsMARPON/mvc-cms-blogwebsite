@@ -1,0 +1,31 @@
+{
+  "name": "mvc-cms-blogwebsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seeds": "node seeds/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItsMARPON/mvc-cms-blogwebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ItsMARPON/mvc-cms-blogwebsite/issues"
+  },
+  "homepage": "https://github.com/ItsMARPON/mvc-cms-blogwebsite#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "eslint": "^8.36.0",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.2",
+    "handlebars": "^4.7.7",
+    "mysql2": "^3.2.0",
+    "sequelize": "^6.29.3"
+  }
+}
