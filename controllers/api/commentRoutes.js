@@ -14,6 +14,17 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res)=> {
+  try{
+    await Comment.update(req.body, {
+      where: {id: req.params.id},
+    });
+
+    res.status(200).json({sucess: true});
+  } catch (err) {
+    res.status(404).json(err);
+  }
+});
 
 router.delete('/:id', withAuth, async(req, res)=> {
     try{
