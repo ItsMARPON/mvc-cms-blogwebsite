@@ -2,12 +2,14 @@ const router = require("express").Router();
 const { Blog, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
-// route to get all blogs
+// route to get all blogs and JOIN with user data
 router.get("/", async (req, res) => {
   try {
     const blogData = await Blog.findAll({
       include: [{ model: User }],
     });
+
+    // Serialize data so the template can read it
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
     res.render("homepage", {
@@ -32,6 +34,38 @@ router.get("/:id", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+
+// Use withAuth middleware to prevent access to route
+router.get('/profile', withAuth, async (req, res)=> {
+  try{
+    // Find user by session ID (already logged into website)
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: {exclude: ['password']},
+      include: [{model: Blog}],
+    });
+
+    const user = userData.get({plain: true});
+
+    res.render('profile', {
+      ...user,
+      logged_in: true
+    });
+  }catch(err){
+    res.status(404).json(err);
+  }
+});
+
+
+router.get('/login', (req, res)=> {
+  // If user logged in, redirect to a different route
+  if(req.session.logged_in){
+    res.redirect('/profile');
+    return;
+  }
+
+  res.render('login');
 });
 
 module.exports = router;
