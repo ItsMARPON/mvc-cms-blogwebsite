@@ -1,15 +1,18 @@
 <div class="menu-container">
-    <div class="card-header col-md-10">
-        <h2>
-            &#127869 Blog Navigation Menu
-        </h2>
-    </div>
-    {{#each blogs as |blog|}}
+  <div class="card-header col-md-10">
+    <h2>
+      &#127869 Home DashBoard Logout
+    </h2>
+  </div>
+  {{#each Posts as |post|}}
     <div class="blog col-md-5">
-        <p>
-            {{blog.id}}
-            {{blog.title}}
-        </p>
+      <p>
+        {{blog.title}}
+      </p>
+      <p>
+        {{blog.user_name}}
+        {{post_date}}
+      </p>
     </div>
-    {{/each}}
+  {{/each}}
 </div>

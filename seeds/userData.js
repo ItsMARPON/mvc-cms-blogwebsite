@@ -8,7 +8,7 @@ const userData = [
     },
     {
         "name": "Golden Grahams",
-        "email": "GoldennGrahams12345@gmail.com",
+        "email": "GoldenGrahams12345@gmail.com",
         "password": "sisouetel98423"
     },
     {
