@@ -29,6 +29,7 @@ Blog.init(
     },
     post_date: {
       type: DataTypes.DATEONLY,
+      defaultValue: DataTypes.NOW,
       allowNull: false,
     },
   },
