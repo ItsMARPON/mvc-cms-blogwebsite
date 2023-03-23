@@ -1,18 +1,24 @@
+{{> navbar}}
 <div class="menu-container">
   <div class="card-header col-md-10">
     <h2>
-      &#127869 Home DashBoard Logout
+      &#127869 TECH BLOG
     </h2>
   </div>
   {{#each Posts as |post|}}
     <div class="blog col-md-5">
+      <div>
       <p>
         {{blog.title}}
       </p>
-      <p>
+      </div>
+      <div>
+       <p>
         {{blog.user_name}}
         {{post_date}}
-      </p>
+      </p>   
+      </div>
+
     </div>
   {{/each}}
 </div>

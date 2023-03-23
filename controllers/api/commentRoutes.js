@@ -8,7 +8,7 @@ router.post("/", async (req, res) => {
       ...req.body,
       user_id: req.session.user_id,
     });
-    res.json({ newComment, success: true });
+    res.status(200).json(newComment);
   } catch (err) {
     res.sendStatus(500).send(err);
   }
