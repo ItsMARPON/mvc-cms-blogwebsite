@@ -9,7 +9,7 @@
   <div class="col-md-6">
     <h3>Create a Post for the Blog Site:</h3>
 
-    <form class="form new-post-form">
+    <form id ="new-post-form-main" class="form new-post-form">
       <div class="form-group">
         <label for="post-name">Title:</label>
         <input class="form-input is-large" type="text" id="post-name" name="post-name" />
@@ -26,7 +26,7 @@
 
   {{#if posts.length}}
   
-  <div class="blog-list col-md-6">
+  <div id ="delete-post-form" class="blog-list col-md-6">
     <h3>Current Posts:</h3>
 
     {{#each posts as |post|}}

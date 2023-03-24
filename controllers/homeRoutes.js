@@ -49,13 +49,13 @@ router.get("/profile", withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
 
     // find blog posts by id
-    const postData = await Blog.findAll({ where: { user_id: user.id } });
+    const blogData = await Blog.findAll({ where: { user_id: user.id } });
 
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
     // express knows to render this handlebars profile
     res.render("profile", {
       ...user,
-      posts,
+      ...blogs,
       logged_in: true,
     });
   } catch (err) {

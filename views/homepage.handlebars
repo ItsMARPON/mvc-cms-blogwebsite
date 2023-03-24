@@ -1,21 +1,24 @@
-{{> navbar}}
 <div class="menu-container">
   <div class="card-header col-md-10">
     <h2>
       &#127869 TECH BLOG
     </h2>
   </div>
-  {{#each Posts as |post|}}
+  {{#each blogs as |blog|}}
     <div class="blog col-md-5">
       <div>
       <p>
-        {{blog.title}}
+        Title: {{blog.title}}
       </p>
       </div>
+    <div>
+      <p>
+       {{blog.post}}
+      </p>
+    </div>
       <div>
        <p>
-        {{blog.user_name}}
-        {{post_date}}
+        Date Posted: {{post_date}}
       </p>   
       </div>
 
