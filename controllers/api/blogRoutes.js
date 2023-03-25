@@ -1,7 +1,6 @@
-const router = require('express').Router();
-const Blog = require('../../models/blog');
-const withAuth = require('../../utils/auth');
-
+const router = require("express").Router();
+const Blog = require("../../models/blog");
+const withAuth = require("../../utils/auth");
 
 router.post("/", withAuth, async (req, res) => {
   try {
@@ -12,26 +11,24 @@ router.post("/", withAuth, async (req, res) => {
 
     res.status(200).json(newBlog);
   } catch (err) {
-    res.sendStatus(400).send(err);
+    console.log(err);
   }
 });
 
-router.put("/", withAuth, async (req, res)=>{
-  try{
+router.put("/", withAuth, async (req, res) => {
+  try {
     await Blog.update(req.body, {
-      where: {id: req.params.id},
+      where: { id: req.params.id },
     });
-    res.status(200).json({success: true});
-  } catch (err){
+    res.status(200).json({ success: true });
+  } catch (err) {
     console.log(err);
     res.status(400).send(err);
   }
 });
 
-
-
-router.delete('/:id', withAuth, async (req, res)=> {
-  try{
+router.delete("/:id", withAuth, async (req, res) => {
+  try {
     const blogData = await Blog.destroy({
       where: {
         id: req.params.id,
@@ -39,21 +36,15 @@ router.delete('/:id', withAuth, async (req, res)=> {
       },
     });
 
-    if (!blogData){
-      res.status(404).json({ message: 'No BlogPost found with this id'});
+    if (!blogData) {
+      res.status(404).json({ message: "No BlogPost found with this id" });
       return;
     }
 
     res.status(200).json(blogData);
-  }catch(err){
+  } catch (err) {
     res.status(500).json(err);
   }
 });
 
-
-
 module.exports = router;
-
-
-
-

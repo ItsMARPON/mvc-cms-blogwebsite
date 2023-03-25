@@ -55,7 +55,7 @@ router.get("/profile", withAuth, async (req, res) => {
     // express knows to render this handlebars profile
     res.render("profile", {
       ...user,
-      ...blogs,
+      blogs,
       logged_in: true,
     });
   } catch (err) {
