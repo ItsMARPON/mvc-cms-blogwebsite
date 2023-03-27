@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
     });
     res.status(200).json(newComment);
   } catch (err) {
-    res.sendStatus(500).send(err);
+    console.log(err);
   }
 });
 
@@ -22,6 +22,7 @@ router.put('/:id', async (req, res)=> {
 
     res.status(200).json({sucess: true});
   } catch (err) {
+    console.log(err);
     res.status(404).json(err);
   }
 });
@@ -42,6 +43,7 @@ router.delete('/:id', withAuth, async(req, res)=> {
 
         res.status(200).json(commentData);
     } catch (err){
+      console.log(err);
         res.status(500).json(err);
     }
 });
