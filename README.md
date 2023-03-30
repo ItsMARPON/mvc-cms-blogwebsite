@@ -1,4 +1,4 @@
-# Model View Controller (MVC) Tech Blog [License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+# Model View Controller (MVC) Tech Blog ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
 
@@ -19,6 +19,7 @@ I want to build a Tech Blog website similar to Wordpress site, where developers 
 -[Questions](#questions)
 
 ## Installation<a name ="installation"></a>
+
 Install Node.js version 16 <br />
 Install MySQL2 <br />
 Install Sequelize <br />
@@ -27,7 +28,6 @@ Install express-handlebars <br />
 Install express-session <br />
 Install connect-session-sequelize <br />
 Install bcrypt <br />
-
 
 ## Usage<a name = "usage"></a>
 
@@ -66,17 +66,16 @@ WHEN I am idle on the site for more than a set time <br />
 THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments <br />
 
 ## Credits<a name = "credits"></a>
+
 Code contributions from instructor, teacher assistants, and Calendly Tutors from University of Minnesota Full-stack Web Development Bootcamp (EDX)
 
-
 ## License<a name= "license"></a>
+
 MIT License (https://opensource.org/licenses/MIT)
 
-
 ## Badges<a name="badges"></a>
+
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-
-
 
 ## Questions<a name = "questions"></a>
 
