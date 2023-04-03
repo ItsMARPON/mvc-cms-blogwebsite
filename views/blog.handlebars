@@ -10,4 +10,11 @@
       {{post}}
     </p>
   </div>
+  {{#if blog.comments}}
+    <p>Comments:</p>
+    {{#each blog.comments}}<p>
+        {{comment_text}}
+      </p>
+    {{/each}}
+  {{/if}}
 </div>

@@ -38,6 +38,13 @@
         <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
       </div>
     </div>
+          {{#if blog.comments}}
+        <p>Comments:</p>
+        {{#each blog.comments}}<p>
+            {{comment_text}}
+          </p>
+        {{/each}}
+      {{/if}}
     {{/each}}
   </div>
   {{/if}}

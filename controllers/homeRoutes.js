@@ -6,12 +6,12 @@ const withAuth = require("../utils/auth");
 router.get("/", async (req, res) => {
   try {
     const blogData = await Blog.findAll({
-      include: [{ model: User }],
+      include: [{ model: User, attributes: ["name"] }, { model: Comment }],
     });
 
     // Serialize data so the template can read it
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
-
+    console.log(blogs);
     res.render("homepage", {
       blogs,
       logged_in: req.session.logged_in,
@@ -25,10 +25,10 @@ router.get("/", async (req, res) => {
 router.get("/blogs/:id", async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
-      include: [{ model: User, attributes: ["name"] }],
+      include: [{ model: User, attributes: ["name"] }, { model: Comment }],
     });
     const blog = blogData.get({ plain: true });
-
+    console.log(blog);
     res.render("blog", {
       ...blog,
       logged_in: req.session.logged_in,
@@ -49,7 +49,7 @@ router.get("/profile", withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
 
     // find blog posts by id
-    const blogData = await Blog.findAll({ where: { user_id: user.id } });
+    const blogData = await Blog.findAll({ where: { user_id: user.id },  include: [{ model: Comment }], });
 
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
     // express knows to render this handlebars profile

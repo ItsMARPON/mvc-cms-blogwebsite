@@ -7,21 +7,29 @@
   {{#each blogs as |blog|}}
     <div class="blog col-md-5">
       <div>
-      <p>
-        Title: {{blog.title}}
-      </p>
+        <p>
+          Title:
+          {{blog.title}}
+        </p>
       </div>
-    <div>
-      <p>
-       {{blog.post}}
-      </p>
-    </div>
       <div>
-       <p>
-        Date Posted: {{post_date}}
-      </p>   
+        <p>
+          {{blog.post}}
+        </p>
       </div>
-
+      <div>
+        <p>
+          Date Posted:
+          {{post_date}}
+        </p>
+      </div>
+      {{#if blog.comments}}
+        <p>Comments:</p>
+        {{#each blog.comments}}<p>
+            {{comment_text}}
+          </p>
+        {{/each}}
+      {{/if}}
     </div>
   {{/each}}
 </div>
